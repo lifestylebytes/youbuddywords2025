@@ -15,6 +15,9 @@ const statusEl = document.getElementById("status");
 const progressEl = document.getElementById("progress");
 const scoreEl = document.getElementById("score");
 const skipBtn = document.getElementById("skipBtn");
+const resetBtn = document.getElementById("resetBtn");
+const enterBtn = document.getElementById("enterBtn"); // 🔹 이 줄 추가
+
 
 let currentIndex = 0;
 let correctCount = 0;
@@ -119,15 +122,21 @@ function handleInput() {
 function nextQuestion() {
   currentIndex++;
   if (currentIndex >= questions.length) {
+    const total = questions.length; // 전체 문장 개수
+
     progressEl.textContent = "Done";
-    statusEl.textContent = "모든 문장을 다 쳤어요. 오늘의 You Buddy 세션 끝!";
+    statusEl.innerHTML = 
+      `모든 문장을 다 쳤어요. 오늘의 You Buddy 세션 끝!<br>` +
+      `오늘의 점수는? 두구두구두구 ${total}개 중 ${correctCount}점!`;
     statusEl.className = "status correct";
+
     answerInput.disabled = true;
     caretEl.style.display = "none";
     return;
   }
   setSentence(questions[currentIndex]);
 }
+
 
 // 정답 보여주고 자동 다음
 function revealAndNext() {
@@ -186,6 +195,28 @@ answerInput.addEventListener("keydown", (e) => {
     checkAnswer();
   }
 });
+enterBtn.addEventListener("click", () => {
+  checkAnswer();
+});
+
+function resetAll() {
+  // 원본 QUESTIONS에서 다시 새 배열 만들고 섞기
+  questions = [...QUESTIONS];
+  shuffle(questions);
+
+  currentIndex = 0;
+  correctCount = 0;
+  wrongCount = 0;
+
+  scoreEl.textContent = "Score: 0";
+  statusEl.textContent = "";
+  statusEl.className = "status";
+
+  setSentence(questions[0]);  // 첫 문제 다시 세팅
+}
+
+
+resetBtn.addEventListener("click", resetAll);
 
 skipBtn.addEventListener("click", revealAndNext);
 

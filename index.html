@@ -6,10 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
   <div class="card" id="card">
     <div class="top-row">
+      
+    <a
+      href="https://apple-libra-6af.notion.site/2025-50-2ab1fc05de1e80a68e5fca2e9ae97ead?source=copy_link"
+      target="_blank"
+      class="badge-link"
+    >
       <div class="badge">
         <div class="badge-avatar">YB</div>
         <div class="badge-text">
@@ -17,11 +22,15 @@
           <span>2025 단어 테스트</span>
         </div>
       </div>
-      <div class="mode-pill">
-        <div class="mode-dot"></div>
-        <span>LIVE PRACTICE</span>
-      </div>
-    </div>
+    </a>
+
+
+    <button class="mode-pill" id="resetBtn" type="button">
+      <div class="mode-dot"></div>
+      <span>Reset</span>
+    </button>
+
+    </div> <!-- /.top-row -->
 
     <div class="sentence-card">
       <div class="sentence-line">
@@ -50,8 +59,14 @@
           />
         </div>
       </div>
+
+      <!-- Enter 버튼 -->
+      <button class="btn enter-btn" id="enterBtn">Enter</button>
+
+      <!-- 정답 보기 버튼 -->
       <button class="btn" id="skipBtn">정답 보기</button>
     </div>
+
 
     <div class="status" id="status"></div>
     <div class="meta">
@@ -65,3 +80,4 @@
   <script src="app.js"></script>
 </body>
 </html>
+

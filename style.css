@@ -69,6 +69,13 @@ body {
     -2px -2px 6px rgba(255,255,255,0.9);
 }
 
+.badge-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+
 .badge-text {
   display: flex;
   flex-direction: column;
@@ -90,6 +97,9 @@ body {
   font-size: 11px;
   color: #737b8c;
   white-space: nowrap;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .mode-dot {
@@ -99,6 +109,16 @@ body {
   background: #22c55e;
   box-shadow: 0 0 0 4px rgba(34,197,94,0.3);
 }
+
+
+
+.mode-pill:active {
+  transform: translateY(1px);
+  box-shadow:
+    inset 2px 2px 4px #cdd0d8,
+    inset -2px -2px 4px #ffffff;
+}
+
 
 /* 문장 카드 */
 .sentence-card {
@@ -396,3 +416,31 @@ body {
     font-size: 10px;
   }
 }
+/* bottom-row 전체 레이아웃: PC에서는 가로 3열 */
+.bottom-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto; 
+  gap: 12px;
+  align-items: center;
+}
+
+/* 버튼 공통 스타일 보정 */
+.btn {
+  padding: 10px 20px;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+/* 모바일에서는 자동으로 세로 정렬 */
+@media (max-width: 600px) {
+  .bottom-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* 버튼은 한 줄씩 */
+  #enterBtn,
+  #skipBtn {
+    width: 100%;
+  }
+}
+
