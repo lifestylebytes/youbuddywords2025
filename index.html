@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>You Buddy 2025 단어 테스트</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="card" id="card">
+    <div class="top-row">
+      <div class="badge">
+        <div class="badge-avatar">YB</div>
+        <div class="badge-text">
+          <span>You Buddy English</span>
+          <span>2025 단어 테스트</span>
+        </div>
+      </div>
+      <div class="mode-pill">
+        <div class="mode-dot"></div>
+        <span>LIVE PRACTICE</span>
+      </div>
+    </div>
+
+    <div class="sentence-card">
+      <div class="sentence-line">
+        <span class="sentence-prefix" id="sentencePrefix"></span>
+        <span class="answer-pill">
+          <span class="answer-visual-inner">
+            <span id="patternBefore"></span>
+            <span id="caret">|</span>
+            <span id="patternAfter"></span>
+          </span>
+        </span>
+        <span class="sentence-suffix" id="sentenceSuffix"></span>
+      </div>
+      <div class="meaning" id="meaning"></div>
+    </div>
+
+    <div class="bottom-row">
+      <div class="input-shell">
+        <div class="input-inner">
+          <div class="prompt-dot"></div>
+          <input
+            type="text"
+            id="answerInput"
+            placeholder="여기에 영어 표현을 입력하고 Enter를 눌러보세요"
+            autocomplete="off"
+          />
+        </div>
+      </div>
+      <button class="btn" id="skipBtn">정답 보기</button>
+    </div>
+
+    <div class="status" id="status"></div>
+    <div class="meta">
+      <span id="progress"></span>
+      <span id="score"></span>
+    </div>
+  </div>
+
+  <!-- 순서 중요: 데이터 → 로직 -->
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
